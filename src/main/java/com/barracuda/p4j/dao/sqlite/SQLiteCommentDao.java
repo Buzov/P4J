@@ -1,15 +1,17 @@
 package com.barracuda.p4j.dao.sqlite;
 
 import com.barracuda.p4j.dao.AbstractJDBCDao;
+import com.barracuda.p4j.dao.PersistException;
+import com.barracuda.p4j.dao.domain.Comment;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.LinkedList;
 import java.util.List;
 
-public class MySqlGroupDao extends AbstractJDBCDao<Group, Integer> {
+public class SQLiteCommentDao extends AbstractJDBCDao<Comment, Integer> {
 
-    private class PersistGroup extends Group {
+    private class PersistComment extends Comment {
         public void setId(int id) {
             super.setId(id);
         }
@@ -37,24 +39,23 @@ public class MySqlGroupDao extends AbstractJDBCDao<Group, Integer> {
     }
 
     @Override
-    public Group create() throws PersistException {
-        Group g = new Group();
+    public Comment create() throws PersistException {
+        Comment g = new Comment();
         return persist(g);
     }
 
-    public MySqlGroupDao(Connection connection) {
+    public SQLiteCommentDao(Connection connection) {
         super(connection);
     }
 
     @Override
-    protected List<Group> parseResultSet(ResultSet rs) throws PersistException {
-        LinkedList<Group> result = new LinkedList<Group>();
+    protected List<Comment> parseResultSet(ResultSet rs) throws PersistException {
+        LinkedList<Comment> result = new LinkedList<Comment>();
         try {
             while (rs.next()) {
-                PersistGroup group = new PersistGroup();
+                PersistComment group = new PersistComment();
                 group.setId(rs.getInt("id"));
-                group.setNumber(rs.getInt("number"));
-                group.setDepartment(rs.getString("department"));
+                group.setComment(rs.getString("comment"));
                 result.add(group);
             }
         } catch (Exception e) {
@@ -64,21 +65,19 @@ public class MySqlGroupDao extends AbstractJDBCDao<Group, Integer> {
     }
 
     @Override
-    protected void prepareStatementForInsert(PreparedStatement statement, Group object) throws PersistException {
+    protected void prepareStatementForInsert(PreparedStatement statement, Comment object) throws PersistException {
         try {
-            statement.setInt(1, object.getNumber());
-            statement.setString(2, object.getDepartment());
+            statement.setString(1, object.getComment());
         } catch (Exception e) {
             throw new PersistException(e);
         }
     }
 
     @Override
-    protected void prepareStatementForUpdate(PreparedStatement statement, Group object) throws PersistException {
+    protected void prepareStatementForUpdate(PreparedStatement statement, Comment object) throws PersistException {
         try {
-            statement.setInt(1, object.getNumber());
-            statement.setString(2, object.getDepartment());
-            statement.setInt(3, object.getId());
+            statement.setInt(1, object.getId());
+            statement.setString(2, object.getComment());
         } catch (Exception e) {
             throw new PersistException(e);
         }

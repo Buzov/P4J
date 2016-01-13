@@ -1,9 +1,8 @@
 package com.barracuda.p4j.dao.sqlite;
 
-import ru.dokwork.daotalk.dao.AbstractJDBCDao;
-import ru.dokwork.daotalk.dao.PersistException;
-import ru.dokwork.daotalk.domain.Student;
-
+import com.barracuda.p4j.dao.AbstractJDBCDao;
+import com.barracuda.p4j.dao.PersistException;
+import com.barracuda.p4j.dao.domain.LoginPassword;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -11,9 +10,9 @@ import java.sql.ResultSet;
 import java.util.LinkedList;
 import java.util.List;
 
-public class MySqlStudentDao extends AbstractJDBCDao<Student, Integer> {
+public class SQLiteLoginPasswordDao extends AbstractJDBCDao<LoginPassword, Integer> {
 
-    private class PersistStudent extends Student {
+    private class PersistLoginPassword extends LoginPassword {
         public void setId(int id) {
             super.setId(id);
         }
@@ -43,26 +42,25 @@ public class MySqlStudentDao extends AbstractJDBCDao<Student, Integer> {
     }
 
     @Override
-    public Student create() throws PersistException {
-        Student s = new Student();
+    public LoginPassword create() throws PersistException {
+        LoginPassword s = new LoginPassword();
         return persist(s);
     }
 
-    public MySqlStudentDao(Connection connection) {
+    public SQLiteLoginPasswordDao(Connection connection) {
         super(connection);
     }
 
     @Override
-    protected List<Student> parseResultSet(ResultSet rs) throws PersistException {
-        LinkedList<Student> result = new LinkedList<Student>();
+    protected List<LoginPassword> parseResultSet(ResultSet rs) throws PersistException {
+        LinkedList<LoginPassword> result = new LinkedList<LoginPassword>();
         try {
             while (rs.next()) {
-                PersistStudent student = new PersistStudent();
+                PersistLoginPassword student = new PersistLoginPassword();
                 student.setId(rs.getInt("id"));
-                student.setName(rs.getString("name"));
-                student.setSurname(rs.getString("surname"));
-                student.setEnrolmentDate(rs.getDate("enrolment_date"));
-                student.setGroupId(rs.getInt("group_id"));
+                student.setLogin(rs.getString("login"));
+                student.setPassword(rs.getString("password"));
+                student.setCommentId(rs.getInt("comment_id"));
                 result.add(student);
             }
         } catch (Exception e) {
@@ -72,29 +70,29 @@ public class MySqlStudentDao extends AbstractJDBCDao<Student, Integer> {
     }
 
     @Override
-    protected void prepareStatementForUpdate(PreparedStatement statement, Student object) throws PersistException {
+    protected void prepareStatementForUpdate(PreparedStatement statement, LoginPassword object) throws PersistException {
         try {
-            Date sqlDate = convert(object.getEnrolmentDate());
+            /*Date sqlDate = convert(object.getEnrolmentDate());
             statement.setString(1, object.getName());
             statement.setString(2, object.getSurname());
             statement.setDate(3, sqlDate);
             statement.setInt(4, object.getGroupId());
-            statement.setInt(5, object.getId());
+            statement.setInt(5, object.getId());*/
         } catch (Exception e) {
             throw new PersistException(e);
         }
     }
 
     @Override
-    protected void prepareStatementForInsert(PreparedStatement statement, Student object) throws PersistException {
+    protected void prepareStatementForInsert(PreparedStatement statement, LoginPassword object) throws PersistException {
         try {
-            Date sqlDate = convert(object.getEnrolmentDate());
+            /*Date sqlDate = convert(object.getEnrolmentDate());
             int groupId = (object.getGroupId() == null) ? 0 : object.getGroupId();
 
             statement.setString(1, object.getName());
             statement.setString(2, object.getSurname());
             statement.setDate(3, sqlDate);
-            statement.setInt(4, groupId);
+            statement.setInt(4, groupId);*/
         } catch (Exception e) {
             throw new PersistException(e);
         }
