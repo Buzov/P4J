@@ -1,6 +1,8 @@
 package com.barracuda.p4j.dao;
 
 public class PersistException extends Exception {
+    
+    private static final long serialVersionUID = 1484719080518331601L;
 
     public PersistException() {
     }
