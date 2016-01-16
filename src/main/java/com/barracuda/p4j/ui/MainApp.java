@@ -1,10 +1,12 @@
 package com.barracuda.p4j.ui;
 
+import java.io.File;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 
@@ -17,7 +19,13 @@ public class MainApp extends Application {
         Scene scene = new Scene(root);
         //scene.getStylesheets().add("/styles/Styles.css");
         
-        stage.setTitle("JavaFX and Maven");
+        stage.setTitle("P4J");
+        File f = new File("d:\\workspace\\NetBeansProjects\\P4J\\src\\main\\resources\\icon\\skull.png");
+        System.out.println(f.exists());
+        Image ix = new Image(f.toURI().toString());
+        stage.getIcons().add(ix);
+        //stage.getIcons().add(new Image(MainApp.class.getResource("skull.png").toExternalForm()));
+        //stage.getIcons().add(new Image(MainApp.class.getResourceAsStream("skull.png")));
         stage.setScene(scene);
         stage.show();
         
