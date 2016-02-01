@@ -1,42 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.*?>
-<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="526.0" prefWidth="500.0" styleClass="background" stylesheets="@../styles/login.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.barracuda.p4j.ui.LoginController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="500.0" styleClass="background" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.barracuda.p4j.ui.StartController">
     <children>
-        <AnchorPane id="anchorPane2" prefHeight="264.0" prefWidth="500.0" styleClass="top-segment" AnchorPane.bottomAnchor="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="36.0">
-            <children>
-                <VBox id="VBox" alignment="CENTER" prefHeight="253.0" prefWidth="428.0" spacing="5.0" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="31.0" AnchorPane.rightAnchor="42.0" AnchorPane.topAnchor="46.0">
-                    <children>
-                        <AnchorPane id="AnchorPane" prefHeight="296.0" prefWidth="424.0">
-                            <children>
-                                <ImageView id="app-login-logo" layoutX="101.0" layoutY="-10.0" nodeOrientation="INHERIT">
-                                    <image>
-                                        <Image preserveRatio="true" smooth="true" url="@../image/LoginLogo.png" />
-                                    </image>
-                                </ImageView>
-                                <Label id="label1" layoutX="14.0" layoutY="67.0" text="Username" />
-                                <TextField id="textField1" fx:id="userId" layoutY="86.0" prefWidth="415.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="0.0" />
-                                <Label id="label1" layoutX="14.0" layoutY="139.0" text="Password" />
-                                <PasswordField id="passwordField1" fx:id="password1" layoutY="157.0" prefWidth="415.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="0.0" />
-                            </children>
-                        </AnchorPane>
-                    </children>
-                </VBox>
-            </children>
-        </AnchorPane>
-        <Button id="button1" fx:id="login" defaultButton="true" layoutX="40.0" layoutY="364.0" onAction="#processLogin" onMouseEntered="#loginButtonMouseEntered" prefHeight="70.0" prefWidth="400.0" text="Login" AnchorPane.bottomAnchor="66.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" />
-        <HBox id="hBox1" alignment="CENTER" prefHeight="25.0" prefWidth="418.0" AnchorPane.bottomAnchor="156.0" AnchorPane.leftAnchor="41.0" AnchorPane.rightAnchor="41.0">
-            <children>
-                <Label id="label2" fx:id="errorMessage" />
-            </children>
-        </HBox>
+        <AnchorPane id="anchorPane2" prefHeight="300.0" prefWidth="500.0" styleClass="top-segment" AnchorPane.bottomAnchor="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+          <VBox id="VBox" alignment="CENTER" layoutX="-201.0" layoutY="209.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+                  <AnchorPane id="AnchorPane" layoutX="-25.0" layoutY="178.0" prefHeight="215.0" prefWidth="400.0">
+                      <children>
+                          <ImageView id="app-login-logo" layoutX="101.0" layoutY="-10.0" nodeOrientation="INHERIT">
+                              <image>
+                                  <Image preserveRatio="true" smooth="true" url="@../image/LoginLogo.png" />
+                              </image>
+                          </ImageView>
+                          <Label id="label1" alignment="CENTER" contentDisplay="CENTER" layoutX="187.0" layoutY="122.0" text="New to us?" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                          <Button fx:id="button_existing_client" layoutY="83.0" mnemonicParsing="false" onAction="#goToStartPage" prefWidth="415.0" text="Existing client" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                          <Button fx:id="button_register" layoutX="186.0" layoutY="155.0" mnemonicParsing="false" onAction="#goToRegisterPage" text="Register" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                      </children>
+               <VBox.margin>
+                  <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+               </VBox.margin>
+                  </AnchorPane>
+         </children>
+          </VBox>
     </children>
-    <stylesheets>
-        <URL value="@../styles/login.css" />
-    </stylesheets>
 </AnchorPane>

@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package fxml;
+package com.barracuda.p4j.ui;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -15,7 +15,7 @@ import javafx.fxml.Initializable;
  *
  * @author artur
  */
-public class FXMLController implements Initializable {
+public class TableController extends AbstractController implements Initializable {
 
     /**
      * Initializes the controller class.
@@ -24,5 +24,10 @@ public class FXMLController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    @Override
+    public void init() {
+        
+    }
     
 }
