@@ -9,6 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -23,7 +24,7 @@ public class MainApp extends Application {
     public void start(Stage primaryStage) throws Exception {
                 try {
             stage = primaryStage;
-            stage.setTitle(NAME_PROGRAMM);
+            //stage.setResizable(false);
             //stage.setMinWidth(MINIMUM_WINDOW_WIDTH);
             //stage.setMinHeight(MINIMUM_WINDOW_HEIGHT);
             goToPage(EnumPage.START);
@@ -98,9 +99,12 @@ public class MainApp extends Application {
         } finally {
             in.close();
         } 
-        Scene scene = new Scene(page, 800, 600);
+        Scene scene = new Scene(page);
         stage.setScene(scene);
         stage.sizeToScene();
+        Image ix = new Image("/icon/lock.png");
+        stage.getIcons().add(ix);
+        stage.setTitle(NAME_PROGRAMM);
         return (Initializable) loader.getController();
     }
 

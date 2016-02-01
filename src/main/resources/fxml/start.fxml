@@ -1,26 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.*?>
+<?import java.net.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="500.0" styleClass="background" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.barracuda.p4j.ui.StartController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="400.0" styleClass="background" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.barracuda.p4j.ui.StartController">
     <children>
-        <AnchorPane id="anchorPane2" prefHeight="300.0" prefWidth="500.0" styleClass="top-segment" AnchorPane.bottomAnchor="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+        <AnchorPane id="anchorPane2" prefHeight="300.0" prefWidth="400.0" styleClass="top-segment" AnchorPane.bottomAnchor="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
           <VBox id="VBox" alignment="CENTER" layoutX="-201.0" layoutY="209.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
                   <AnchorPane id="AnchorPane" layoutX="-25.0" layoutY="178.0" prefHeight="215.0" prefWidth="400.0">
                       <children>
-                          <ImageView id="app-login-logo" layoutX="101.0" layoutY="-10.0" nodeOrientation="INHERIT">
+                          <ImageView id="app-login-logo" layoutX="32.0" nodeOrientation="INHERIT">
                               <image>
                                   <Image preserveRatio="true" smooth="true" url="@../image/LoginLogo.png" />
                               </image>
                           </ImageView>
-                          <Label id="label1" alignment="CENTER" contentDisplay="CENTER" layoutX="187.0" layoutY="122.0" text="New to us?" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-                          <Button fx:id="button_existing_client" layoutY="83.0" mnemonicParsing="false" onAction="#goToStartPage" prefWidth="415.0" text="Existing client" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                          <Label id="label1" alignment="CENTER" contentDisplay="CENTER" layoutX="187.0" layoutY="122.0" text="New to us?" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                          <Button fx:id="button_existing_client" layoutY="83.0" mnemonicParsing="false" onAction="#goToStartPage" prefWidth="300.0" text="Existing client" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -38,4 +39,7 @@
          </children>
           </VBox>
     </children>
+    <stylesheets>
+        <URL value="@../styles/main.css" />
+    </stylesheets>
 </AnchorPane>
