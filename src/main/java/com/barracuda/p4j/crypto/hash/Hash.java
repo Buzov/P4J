@@ -1,5 +1,7 @@
 package com.barracuda.p4j.crypto.hash;
 
+import java.util.Objects;
+
 /**
  *
  * @author artur
@@ -29,6 +31,11 @@ public class Hash {
 
     public void setHash(String hash) {
         this.hash = hash;
+    }
+
+    @Override
+    public String toString() {
+        return "Hash{" + "salt=" + salt + ", hash=" + hash + '}';
     }
 
 }

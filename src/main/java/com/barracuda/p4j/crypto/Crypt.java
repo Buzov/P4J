@@ -26,21 +26,19 @@ public class Crypt {
         dcipher.init(Cipher.DECRYPT_MODE, key);
     }
  
-    /**
-     * Функция шифровнаия
-     */
+    /*//Функция шифровнаия
+/
     public String encrypt(String str) throws UnsupportedEncodingException, IllegalBlockSizeException, BadPaddingException {
         byte[] utf8 = str.getBytes("UTF8");
         byte[] enc = ecipher.doFinal(utf8);
         return new sun.misc.BASE64Encoder().encode(enc);
     }
  
-    /**
-     * Функция расшифрования
-     **/
+    // Функция расшифрования
+
     public String decrypt(String str) throws IOException, IllegalBlockSizeException, BadPaddingException {
         byte[] dec = new sun.misc.BASE64Decoder().decodeBuffer(str);
         byte[] utf8 = dcipher.doFinal(dec);
         return new String(utf8, "UTF8");
-    }
+    }*/
 }

@@ -36,8 +36,8 @@ public abstract class PasswordHash {
     public static String createHash(char[] password, byte[] salt, int iterations, int hashByteSize) throws NoSuchAlgorithmException, InvalidKeySpecException, UnsupportedEncodingException {
         // Hash the password
         byte[] hash = pbkdf2(password, salt, iterations, hashByteSize);
-        return new String(hash, "UTF-16");
-        //return toHex(hash);
+        //return new String(hash, "UTF8");
+        return toHex(hash);
     }
     
     public static boolean validatePassword(String password, String salt, String hash) throws NoSuchAlgorithmException, InvalidKeySpecException {
